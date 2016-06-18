@@ -1,4 +1,4 @@
-package com.paracordistry;
+package com.paracordistry.dto;
 
 
 /**
@@ -9,12 +9,12 @@ package com.paracordistry;
         "description": "Una de esas pulseras complicadas pero cuyo resultado es interesante: la pulsera Quasi-Cobbed Solomon Bar.",
         "colours": "Uno o dos colores.",
         "reversible": "No es reversible.",
-        "buckle": "Cierre plástico / nylon.",
+        "buckle": "Cierre plï¿½stico / nylon.",
         "material": "paracord 550",
         "flexibility": "Muy flexible."
       }
     ],
-    "additionalInfo": "Este modelo sólo se fabrica por encargo. Ponte en contacto para determinar la talla y los colores que deseas.",
+    "additionalInfo": "Este modelo sï¿½lo se fabrica por encargo. Ponte en contacto para determinar la talla y los colores que deseas.",
     "code": "BP-QUASICOBBED",
     "price": 9.95,
     "category": "Pulseras",
@@ -29,6 +29,7 @@ package com.paracordistry;
  */
 
 public class Product {
+	String productId;
 	String name;
 	Information information = new Information();
 	String additionalInfo;
@@ -38,6 +39,14 @@ public class Product {
 	String[] tags;
 	String[] images;
 
+	public String getProductId() {
+		return productId;
+	}
+
+	public void setProductId(String productId) {
+		this.productId = productId;
+	}
+	
 	public String getName() {
 		return name;
 	}

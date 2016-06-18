@@ -1,11 +1,11 @@
-package com.paracordistry;
+package com.paracordistry.dto;
 
 public class Information {
 
 //	"description": "Una de esas pulseras complicadas pero cuyo resultado es interesante: la pulsera Quasi-Cobbed Solomon Bar.",
 //    "colours": "Uno o dos colores.",
 //    "reversible": "No es reversible.",
-//    "buckle": "Cierre plástico / nylon.",
+//    "buckle": "Cierre plï¿½stico / nylon.",
 //    "material": "paracord 550",
 //    "flexibility": "Muy flexible."
 	
