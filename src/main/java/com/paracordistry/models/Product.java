@@ -1,6 +1,11 @@
 package com.paracordistry.models;
 
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * {
@@ -10,14 +15,15 @@ package com.paracordistry.models;
         "description": "Una de esas pulseras complicadas pero cuyo resultado es interesante: la pulsera Quasi-Cobbed Solomon Bar.",
         "colours": "Uno o dos colores.",
         "reversible": "No es reversible.",
-        "buckle": "Cierre pl�stico / nylon.",
+        "buckle": "Cierre plastico / nylon.",
         "material": "paracord 550",
         "flexibility": "Muy flexible."
       }
     ],
-    "additionalInfo": "Este modelo s�lo se fabrica por encargo. Ponte en contacto para determinar la talla y los colores que deseas.",
+    "additionalInfo": "Este modelo solo se fabrica por encargo. Ponte en contacto para determinar la talla y los colores que deseas.",
     "code": "BP-QUASICOBBED",
     "price": 9.95,
+    "oldPrice": 14.50,
     "category": "Pulseras",
     "tags": [
       "paracord",
@@ -29,17 +35,37 @@ package com.paracordistry.models;
  *
  */
 
+@Entity
+@Table(name = "PRODUCT")
 public class Product {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	String productId;
+	
+	@Column(name = "NAME", nullable = false)
 	String name;
-	Information information = new Information();
-	String additionalInfo;
+	
+	@Column(name = "CODE", nullable = false)
 	String code;
-	String price;
+	
+	@Column(name = "PRICE", precision = 10, scale = 2)
+	Double price;
+	
+	@Column(name = "OLD_PRICE", precision = 10, scale = 2)
+	Double oldPrice;
+	
+	@Column(name = "CATEGORY")
 	String category;
-	String[] tags;
-	String[] images;
+	
+	@Column(name = "ADDITIONAL_INFO")
+	String additionalInfo;
 
+//	Information information = new Information();
+	
+//	String[] tags;
+//	
+//	String[] images;
+	
 	public String getProductId() {
 		return productId;
 	}
@@ -47,29 +73,13 @@ public class Product {
 	public void setProductId(String productId) {
 		this.productId = productId;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public Information getInformation() {
-		return information;
-	}
-
-	public void setInformation(Information informationArray) {
-		this.information = informationArray;
-	}
-
-	public String getAdditionalInfo() {
-		return additionalInfo;
-	}
-
-	public void setAdditionalInfo(String additionalInfo) {
-		this.additionalInfo = additionalInfo;
 	}
 
 	public String getCode() {
@@ -80,12 +90,20 @@ public class Product {
 		this.code = code;
 	}
 
-	public String getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(Double price) {
 		this.price = price;
+	}
+
+	public Double getOldPrice() {
+		return oldPrice;
+	}
+
+	public void setOldPrice(Double oldPrice) {
+		this.oldPrice = oldPrice;
 	}
 
 	public String getCategory() {
@@ -96,20 +114,12 @@ public class Product {
 		this.category = category;
 	}
 
-	public String[] getTags() {
-		return tags;
+	public String getAdditionalInfo() {
+		return additionalInfo;
 	}
 
-	public void setTags(String[] tags) {
-		this.tags = tags;
-	}
-
-	public String[] getImages() {
-		return images;
-	}
-
-	public void setImages(String[] images) {
-		this.images = images;
+	public void setAdditionalInfo(String additionalInfo) {
+		this.additionalInfo = additionalInfo;
 	}
 	
 }

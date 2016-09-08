@@ -13,18 +13,19 @@ import org.springframework.web.bind.annotation.RestController;
 import com.paracordistry.models.Product;
 import com.paracordistry.services.ProductsService;
 
+
 @RestController
 @RequestMapping("/products")
 public class ProductsRestController {
 
 	@Autowired ProductsService productsService;
 	
-    @RequestMapping(value = {"/list"}, method = RequestMethod.GET)
-    public  @ResponseBody List<Product> getProducts() {
+    @RequestMapping(value = {"/list"}, method = RequestMethod.GET, produces = "application/json")
+    public @ResponseBody List<Product> getProducts() {
     	List<Product> products = new ArrayList<Product>();
     	
     	try {
-			products = productsService.getProducts();
+    		products = productsService.findAllProducts();
 			System.out.println(products);
 		} catch (Exception e) {
 			System.out.println("Exception Error: " + e);
@@ -34,11 +35,11 @@ public class ProductsRestController {
     }
     
     @RequestMapping(value = {"/{productId}"}, method = RequestMethod.GET)
-    public  @ResponseBody Product getProductById(@PathVariable String productId) {
+    public @ResponseBody Product getProductById(@PathVariable String productId) {
     	Product product = new Product();
 
 		try {
-			product = productsService.getProductById(productId);
+			product = productsService.findProductById(productId);
 			System.out.println(product);
 		} catch (Exception e) {
 			System.out.println("Exception Error: " + e); 
