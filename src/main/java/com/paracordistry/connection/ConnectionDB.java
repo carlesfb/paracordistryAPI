@@ -1,4 +1,4 @@
-package com.paracordistry.dao;
+package com.paracordistry.connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

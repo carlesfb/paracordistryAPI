@@ -1,4 +1,4 @@
-package com.paracordistry.dto;
+package com.paracordistry.models;
 
 public class Information {
 
