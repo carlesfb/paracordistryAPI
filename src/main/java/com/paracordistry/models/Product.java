@@ -40,6 +40,7 @@ import javax.persistence.Table;
 public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "PRODUCT_ID", nullable = false)
 	String productId;
 	
 	@Column(name = "NAME", nullable = false)
