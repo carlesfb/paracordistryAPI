@@ -1,10 +1,13 @@
 package com.paracordistry.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 /**
@@ -40,7 +43,7 @@ import javax.persistence.Table;
 public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "PRODUCT_ID", nullable = false)
+	@Column(name = "PRODUCT_ID")
 	String productId;
 	
 	@Column(name = "NAME", nullable = false)
@@ -58,13 +61,13 @@ public class Product {
 	@Column(name = "CATEGORY")
 	String category;
 	
-	@Column(name = "ADDITIONAL_INFO")
-	String additionalInfo;
-
-//	Information information = new Information();
+	@OneToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="PRODUCT_INFO_ID")
+	Information information;
 	
 //	String[] tags;
 //	
+//	@OneToMany
 //	String[] images;
 	
 	public String getProductId() {
@@ -115,12 +118,12 @@ public class Product {
 		this.category = category;
 	}
 
-	public String getAdditionalInfo() {
-		return additionalInfo;
+	public Information getInformation() {
+		return information;
 	}
 
-	public void setAdditionalInfo(String additionalInfo) {
-		this.additionalInfo = additionalInfo;
+	public void setInformation(Information information) {
+		this.information = information;
 	}
 	
 }

@@ -26,7 +26,7 @@ public class ProductsRestController {
     	
     	try {
     		products = productsService.findAllProducts();
-			System.out.println(products);
+			//System.out.println(products);
 		} catch (Exception e) {
 			System.out.println("Exception Error: " + e);
 		}
@@ -40,7 +40,7 @@ public class ProductsRestController {
 
 		try {
 			product = productsService.findProductById(productId);
-			System.out.println(product);
+			//System.out.println(product);
 		} catch (Exception e) {
 			System.out.println("Exception Error: " + e); 
 		}
